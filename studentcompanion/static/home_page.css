@@ -1,0 +1,17 @@
+body {
+  background-color: #def4f0;
+}
+
+.card-col {
+  text-align: center;
+}
+
+.tt-img {
+  height: 300px;
+  width: 300px;
+}
+
+p
+{
+  font-size: 20px;
+}

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block stylesheet %}
+<style media="screen">
+  body {
+    background-color: #def4f0;
+  }
+
+  p {
+    font-size: 20px;
+    display: inline;
+  }
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2 class="text-center mt-4">To-Do List</h2>
+  <form action={{ url_for('add_todo') }} method="post">
+    <div class="form-row align-items-center">
+      <div class="col-sm mt-2"> </div>
+      <div class="col-sm-10 mt-2">
+        <input type="text" class="form-control" name="toitem" placeholder="">
+      </div>
+      <div class="col-sm mt-2">
+        <button type="submit" class="btn btn-sm btn-dark">Add</button>
+      </div>
+    </div>
+  </form>
+  <ul class="list-group mt-5">
+    {% for item in to_list %}
+
+    {% if item.done %}
+    <form action={{ url_for('remove_todo') }} method="post">
+      <li class="list-group-item">
+        <p style="word-break:break-all;text-decoration: line-through;">{{ item.to_item }}</p> <input type="submit" class="btn btn-sm btn-danger ml-auto" name={{ item.id }} value="Remove">
+      </li>
+    </form>
+    {% else %}
+    <form action={{ url_for('todo_done') }} method="post">
+      <li class="list-group-item">
+        <p style="word-break:break-all;">{{ item.to_item }}</p> <input type="submit" class="btn btn-sm btn-success ml-auto" name={{ item.id }} value="Done">
+      </li>
+    </form>
+    {% endif %}
+
+    {% endfor %}
+  </ul>
+
+
+  {# <form action={{ url_for('test') }}>
+    <button type="submit" class="btn btn-lg" name="button">submit</button>
+  </form> #}
+
+
+</div>
+{% endblock %}

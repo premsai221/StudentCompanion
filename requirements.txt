@@ -1,0 +1,14 @@
+APScheduler==3.6.3
+bcrypt==3.1.7
+email-validator==1.1.1
+Flask==1.1.2
+Flask-Bcrypt==0.7.1
+Flask-Login==0.5.0
+Flask-SQLAlchemy==2.4.3
+Flask-WTF==0.14.3
+SQLAlchemy==1.3.18
+twilio==6.45.0
+tzlocal==2.1
+urllib3==1.25.10
+Werkzeug==1.0.1
+WTForms==2.3.3

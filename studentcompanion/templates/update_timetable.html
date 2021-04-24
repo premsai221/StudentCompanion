@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block stylesheet %}
+<style media="screen">
+  body {
+    background-color: #def4f0;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<form method="post" novalidate>
+  <div class="container-fluid mt-4 mb-4">
+    {{ form.submit(class="btn btn-outline-dark mb-3") }}
+
+    <table class="table table-bordered table-responsive-lg" style="background-color:white;">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Day</th>
+          <th scope="col">10-11 AM</th>
+          <th scope="col">11-12 AM</th>
+          <th scope="col">12-1 PM</th>
+          <th scope="col">1-2 PM</th>
+          <th scope="col">2-3 PM</th>
+          <th scope="col">3-4 PM</th>
+          <th scope="col">4-5 PM</th>
+          <th scope="col">5-6 PM</th>
+          <th scope="col">6-7 PM</th>
+          <th scope="col">7-8 PM</th>
+          <th scope="col">8-9 PM</th>
+          <th scope="col">9-10 PM</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for forms in form_list %}
+        <tr>
+          {% for form_item in forms %}
+          {% if form_item.data in ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'] %}
+          <td scope='row'>{{ form_item.data }}</td>
+          {% else %}
+          <td>
+            <div class="form-group">
+              {{ form_item(class="form-control") }}
+            </div>
+          </td>
+          {% endif %}
+          {% endfor %}
+        </tr>
+
+        {% endfor %}
+      </tbody>
+
+    </table>
+
+
+  </div>
+
+</form>
+
+
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block stylesheet %}
+<style media="screen">
+  body {
+    background-color: #def4f0;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="container" style="padding-left:10%; padding-right:10%;">
+  <legend class="mt-4 border-bottom">Sign Up Now</legend>
+  <form method="post" novalidate>
+    {{ form.hidden_tag() }}
+
+
+
+    <div class="form-group mt-4">
+      {{ form.name.label }}
+      {% if form.name.errors %}
+      {{ form.name(class="form-control is-invalid") }}
+      {% for error in form.name.errors %}
+      <small class="invalid-feedback"> {{ error }} </small>
+      {% endfor %}
+      {% else %}
+      {{ form.name(class="form-control") }}
+      {% endif %}
+    </div>
+
+    <div class="form-group mt-4">
+      {{ form.email.label }}
+      {% if form.email.errors %}
+      {{ form.email(class="form-control is-invalid") }}
+      {% for error in form.email.errors %}
+      <small class="invalid-feedback"> {{ error }} </small>
+      {% endfor %}
+      {% else %}
+      {{ form.email(class="form-control") }}
+      {% endif %}
+
+    </div>
+
+    <div class="form-group mt-4">
+      {{ form.number.label }}
+      {% if form.number.errors %}
+      {{ form.number(class="form-control is-invalid") }}
+      {% for error in form.number.errors %}
+      <small class="invalid-feedback"> {{ error }} </small>
+      {% endfor %}
+      {% else %}
+      {{ form.number(class="form-control") }}
+      {% endif %}
+    </div>
+
+    <div class="form-group mt-4">
+      {{ form.password.label }}
+      {% if form.password.errors %}
+      {{ form.password(class="form-control is-invalid") }}
+      {% for error in form.password.errors %}
+      <small class="invalid-feedback"> {{ error }} </small>
+      {% endfor %}
+      {% else %}
+      {{ form.password(class="form-control") }}
+      {% endif %}
+    </div>
+
+    <div class="form-group mt-4">
+      {{ form.confirm_password.label }}
+      {% if form.confirm_password.errors %}
+      {{ form.confirm_password(class="form-control is-invalid") }}
+      {% for error in form.confirm_password.errors %}
+      <small class="invalid-feedback"> {{ error }} </small>
+      {% endfor %}
+      {% else %}
+      {{ form.confirm_password(class="form-control ") }}
+      {% endif %}
+    </div>
+
+
+    {{ form.submit(class="btn btn-lg btn-outline-dark mt-4 mb-4") }}
+
+  </form>
+  <small class="text-muted mt-4">Already a User? <a href={{url_for('login')}}>Log In</a> </small>
+</div>
+
+
+{% endblock %}

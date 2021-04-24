@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href={{ url_for('static',filename='home_page.css') }}>
+
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-5">
+  <h3 class="mt-4">Hello {{ current_user.name }}</h3>
+  <div class="row mt-5">
+
+
+    <div class="col-lg-3 mt-4">
+      <a href={{ url_for('timetable') }} class="text-decoration-none">
+        <img src={{ url_for('static',filename='images/timetable2_card.png') }} class="img-fluid mx-auto d-block" alt="">
+        <div class="text-center nav-link">
+          <h2>Timetable</h2>
+          <p>Create a timetable and be more productive</p>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="col-lg-3 mt-4">
+      <a href={{ url_for('todo') }} class="text-decoration-none">
+        <img src={{ url_for('static',filename='images/to_do_list.png') }} class="img-fluid mx-auto d-block" alt="">
+        <div class="text-center nav-link">
+          <h2>To-Do List</h2>
+          <p>Keep a to-do list and get things done faster</p>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="col-lg-3 mt-4">
+      <a href={{ url_for('reminder') }} class="text-decoration-none">
+        <img src={{ url_for('static',filename='images/alarm1.png') }} class="img-fluid mx-auto d-block" alt="">
+        <div class="text-center nav-link">
+          <h2>Reminders</h2>
+          <p>Set a reminder and get notified on time.</p>
+        </div>
+      </a>
+    </div>
+
+
+
+    <div class="col-lg-3 mt-4">
+
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}

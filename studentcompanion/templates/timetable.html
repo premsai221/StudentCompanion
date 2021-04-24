@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block stylesheet %}
+<style media="screen">
+  body {
+    background-color: #def4f0;
+  }
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid mb-4">
+  <h2 class="text-center mt-4">TimeTable</h2>
+  <a class="nav-link my-3" href={{url_for('update_timetable')}}> <button type="button" class="btn btn-sm btn-outline-dark">Change</button> </a>
+  <table class="table table-bordered table-responsive-lg" style="background-color:white;">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Day</th>
+        <th scope="col">10-11 AM</th>
+        <th scope="col">11-12 AM</th>
+        <th scope="col">12-1 PM</th>
+        <th scope="col">1-2 PM</th>
+        <th scope="col">2-3 PM</th>
+        <th scope="col">3-4 PM</th>
+        <th scope="col">4-5 PM</th>
+        <th scope="col">5-6 PM</th>
+        <th scope="col">6-7 PM</th>
+        <th scope="col">7-8 PM</th>
+        <th scope="col">8-9 PM</th>
+        <th scope="col">9-10 PM</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for list in tt_list %}
+      <tr>
+        {% for item in list %}
+        {% if item in ['Monday','Tuesday','Wednesday','Thusrday','Friday','Saturday','Sunday'] %}
+        <td scope="row">{{item}}</td>
+        {% else %}
+        <td>{{item}}</td>
+        {% endif %}
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+</div>
+
+
+
+{% endblock %}

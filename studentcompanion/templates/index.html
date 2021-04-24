@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+
+{% block stylesheet %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/index_page.css">
+{% endblock stylesheet %}
+
+{% block content%}
+
+<div class="ind-bg-div">
+
+  <div class="row ind-row mr-0">
+
+    <div class="col-lg-6 mb-4 pb-4">
+      <div class="ind-header">
+        <h1 class="ind-h1">An online Companion for your day to day activities</h1>
+        <a href={{ url_for('signup') }}>
+          <button type="button" class="btn btn-lg btn-outline-dark" name="button">Sign up for Free</button>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="col-lg-6 pt-3 pb-3" style="text-align: center;">
+
+      <img src={{ url_for('static',filename='images/final1.png') }} class="final1-img" height="20rem" width="20rem" alt="">
+
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+{% endblock content %}

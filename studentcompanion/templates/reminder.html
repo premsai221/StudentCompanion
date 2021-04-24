@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block stylesheet %}
+<style>
+body {
+  background-color: #def4f0;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2 class="text-center mt-4">Reminders</h2>
+  <form action={{ url_for('add_reminder') }} class="mb-5" method="post">
+    <div class="form-row align-items-center mx-0">
+      <div class="col-sm mt-3">
+        <input type="text" class="form-control" name="event" value="" required>
+      </div>
+      <div class="col-sm-2 mt-3">
+        <input type="date" class="form-control" name="date" value="" min={{ date }} required>
+      </div>
+      <div class="col-sm-2 mt-3">
+        <input type="time" class="form-control" name="time" value="" required>
+      </div>
+      <div class="col-sm-2 mt-3">
+        <button type="submit" class="btn btn-sm btn-dark" name="button">Set Reminder</button>
+      </div>
+    </div>
+  </form>
+  <table class="table">
+  <thead class="thead-dark table-sm">
+    <tr>
+      <th scope="col">Event</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+      <th scope='col'></td>
+    </tr>
+  </thead>
+  <tbody style="background-color:white;">
+    {% for item,date,time in reminder_data%}
+    <form class="" action={{ url_for('remove_reminder') }} method="post">
+      <tr>
+        <td style="word-break:break-all;">{{ item.event }}</td>
+        <td>{{ date }}</td>
+        <td>{{ time }}</td>
+        <td> <button type="submit" class="btn btn-sm btn-dark" name={{ item.id }}>Delete</button> </td>
+      </tr>
+    </form>
+
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+{% endblock %}

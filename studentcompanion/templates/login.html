@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block stylesheet %}
+<style media="screen">
+  body {
+    background-color: #def4f0;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="container" style="padding-left:10%; padding-right:10%;">
+  <legend class="mt-4 border-bottom">Log in</legend>
+  <form method="post" novalidate>
+    {{ form.hidden_tag() }}
+
+    <div class="form-group mt-4">
+      {{ form.email.label }}
+      {% if form.email.errors %}
+      {{ form.email(class="form-control is-invalid") }}
+      {% for error in form.email.errors %}
+      <small class="invalid-feedback"> {{ error }} </small>
+      {% endfor %}
+      {% else %}
+      {{ form.email(class="form-control") }}
+      {% endif %}
+    </div>
+
+    <div class="form-group mt-4">
+      {{ form.password.label }}
+      {% if form.password.errors %}
+      {{ form.password(class="form-control is-invalid") }}
+      {% for error in form.password.errors %}
+      <small class="invalid-feedback"> {{ error }} </small>
+      {% endfor %}
+      {% else %}
+      {{ form.password(class="form-control") }}
+      {% endif %}
+    </div>
+
+    <div class="form-group form-check">
+      {{ form.remember(class="form-check-input") }}
+      {{ form.remember.label(class="form-check-label") }}
+    </div>
+
+    {{ form.submit(class="btn btn-lg btn-outline-dark") }}
+
+  </form>
+</div>
+
+{% endblock %}
